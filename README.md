@@ -6,7 +6,7 @@ Sample application showing how to target only Zebra devices, so the Play Store w
 
 -------------------------------------------------------
 
-##Targeting Zebra devices with the Play Store device catalogue
+## Targeting Zebra devices with the Play Store device catalogue
 
 When distributing your application through Google’s Play Store which devices it runs on is a key consideration, especially in Enterprise.  The way the Play Store manages which devices are supported by an application is through the [Device catalogue](https://play.google.com/console/about/devicecatalog/) although that catalogue (at the time of writing) contains nearly 18,000 entries.  In the consumer sphere ensuring your application runs on the widest range of devices is non-trivial but essential to ensure success so developers rely on Play Store app stats, crashlytics, A/B testing, device farms and innumerable other techniques.
 
@@ -14,13 +14,13 @@ Enterprise developers are different and will typically target fewer than 20 devi
 
 ![Device Catalogue](https://raw.githubusercontent.com/darryncampbell/PlayStoreOnlyZebraDevices/main/screenshots/01.png)
 
-###The Managed Play Store
+### The Managed Play Store
 
 For those not familiar: Google’s Play Store has a dedicated set of capabilities targeted towards Enterprise use cases known as the ‘[Managed Google Play](https://support.google.com/googleplay/work/answer/6138458?hl=en)’.  It is through the managed Play Store that Enterprises control which applications are installed on devices using an EMM, regardless of whether the device is fully owned (typical with Zebra devices) or uses the Android Work Profile on personal devices.  Through managed Google Play organizations can also publish [private applications](https://support.google.com/googleplay/work/answer/6145139) not otherwise available through the Play Store.
 
 Managed Google Play and the standard Play Store share much of the same infrastructure, including the [Device catalogue](https://play.google.com/console/about/devicecatalog/) meaning you can use the device catalogue to selectively include or exclude supported devices regardless of which Play Store variant you use.
 
-###Manually exclude devices your application does not support
+### Manually exclude devices your application does not support
 
 Every application will not run on every device – e.g. some applications require GPS but not all devices have this capability, some applications require a camera but not all devices have a camera etc.  Your application will specify a minimum target SDK but not all devices will support that Android version.  This is the difference between “Supported” and “Excluded”.  By default, your application will be available to all devices whose hardware and OS match your apps criteria which will likely be thousands of device models.
 
@@ -28,7 +28,7 @@ If you want your application to only be available on a subset of these devices, 
 
 ![Bulk exclude devices](https://raw.githubusercontent.com/darryncampbell/PlayStoreOnlyZebraDevices/main/screenshots/02.png)
 
-###Writing an app that is only ‘supported’ on Zebra devices
+### Writing an app that is only ‘supported’ on Zebra devices
 
 If you only plan on only targeting Zebra devices with your application, you can take advantage of the existing Play Store mechanisms for filtering supported devices based on hardware and software requirements.
 
@@ -58,7 +58,7 @@ The application as it appears in the Play Store on a Zebra TC52x
 
 The application as it appears in the Play Store on a Google Pixel 4
 
-###Zebra devices in the catalogue: Why do some devices have multiple models?
+### Zebra devices in the catalogue: Why do some devices have multiple models?
 
 If you look at the device catalogue and filter on Zebra devices you will see that some devices have multiple models associated with them, for example the TC20 can be expanded into two models but the TC20KB is shown as a separate device.  The TC51 has two available models, the TC51 and TC51HC:
 
@@ -72,6 +72,6 @@ The camera will not always be the cause for multiple models, for example the dif
 
 Where multiple models are shown it is possible to include or exclude individual models, either manually from the device catalogue or by specifying `<uses-feature/>` in your application manifest, giving you full control over where your application will run.
 
-###Conclusion
+### Conclusion
 
 In conclusion, it is possible to fully control where your application gets deployed by using the Play Store device catalogue which is particularly useful for our ISV partners who need to control where there enterprise apps will be deployed.
