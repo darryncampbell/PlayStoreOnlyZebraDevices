@@ -8,7 +8,7 @@ Sample application showing how to target only Zebra devices, so the Play Store w
 
 ## Targeting Zebra devices with the Play Store device catalogue
 
-When distributing your application through Google’s Play Store which devices it runs on is a key consideration, especially in Enterprise.  The way the Play Store manages which devices are supported by an application is through the [Device catalogue](https://play.google.com/console/about/devicecatalog/) although that catalogue (at the time of writing) contains nearly 18,000 entries.  In the consumer sphere ensuring your application runs on the widest range of devices is non-trivial but essential to ensure success so developers rely on Play Store app stats, crashlytics, A/B testing, device farms and innumerable other techniques.
+When distributing your application through Google’s Play Store, which devices it runs on is a key consideration, especially in Enterprise.  The way the Play Store manages an application's supported devices is through the [Device catalogue](https://play.google.com/console/about/devicecatalog/) although that catalogue (at the time of writing) contains nearly 18,000 entries.  In the consumer sphere ensuring your application runs on the widest range of devices is non-trivial but essential to ensure success, so developers rely on Play Store app stats, crashlytics, A/B testing, device farms and innumerable other techniques.
 
 Enterprise developers are different and will typically target fewer than 20 device models (often just 1) so have different priorities and considerations.
 
@@ -16,7 +16,7 @@ Enterprise developers are different and will typically target fewer than 20 devi
 
 ### The Managed Play Store
 
-For those not familiar: Google’s Play Store has a dedicated set of capabilities targeted towards Enterprise use cases known as the ‘[Managed Google Play](https://support.google.com/googleplay/work/answer/6138458?hl=en)’.  It is through the managed Play Store that Enterprises control which applications are installed on devices using an EMM, regardless of whether the device is fully owned (typical with Zebra devices) or uses the Android Work Profile on personal devices.  Through managed Google Play organizations can also publish [private applications](https://support.google.com/googleplay/work/answer/6145139) not otherwise available through the Play Store.
+For those not familiar: Google’s Play Store has a dedicated set of capabilities targeted towards Enterprise use cases known as the ‘[Managed Google Play](https://support.google.com/googleplay/work/answer/6138458?hl=en)’.  It is through the managed Play Store that Enterprises control which applications are installed on devices using an EMM, regardless of whether the device is fully owned (typical with Zebra devices) or uses the Android Work Profile on personal devices.  Through managed Google Play, organizations can also publish [private applications](https://support.google.com/googleplay/work/answer/6145139) not otherwise available through the Play Store.
 
 Managed Google Play and the standard Play Store share much of the same infrastructure, including the [Device catalogue](https://play.google.com/console/about/devicecatalog/) meaning you can use the device catalogue to selectively include or exclude supported devices regardless of which Play Store variant you use.
 
@@ -38,7 +38,7 @@ If you look at any device in the catalogue you will see the System features and 
 
 Looking at this list, many of them are standard libraries but others are unique to Zebra devices, i.e. anything that starts with `com.symbol.*`.  Exactly what each of these libraries do is undocumented, subject to change and in some cases not obvious but the functionality of a handful of these libraries is self-evident.
 
-By taking a Zebra-specific shared library and ensuring it is required by our application we can ensure that only Zebra devices are shown as ‘supported’ for our app in the device catalogue.  For example, the underlying functionality for the EMDK API is provided by the `com.symbol.emdk` service.  If your application specifies that this library is required in its manifest (even if it does not use the EMDK) it will still only be supported by devices that contain this library:
+By taking a Zebra-specific shared library and ensuring it is required by our application we can ensure that only Zebra devices are shown as "supported" for our app in the device catalogue.  For example, the underlying functionality for the EMDK API is provided by the `com.symbol.emdk` service.  If your application specifies that this library is required in its manifest (even if it does not use the EMDK) it will still only be "supported" by devices that contain this library:
 
 ```xml
 <uses-library
